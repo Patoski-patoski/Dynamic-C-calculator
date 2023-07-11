@@ -16,7 +16,6 @@ bool isFloat(const char *input)
 
 void add()
 {
-    int sum = 0;
     int num;
     int i;
     float fsum;

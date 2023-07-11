@@ -6,7 +6,6 @@ void divide()
     int i;
     float fdiv;
     float arr[10];
-    int count;
 
     printf("How many numbers do you want to divide: ");
     scanf("%d", &num);
