@@ -1,34 +1,41 @@
 #include "header.h"
-#include <stdio.h>
-#include <stdbool.h>
-
-bool isFloat(const char *input)
-{
-    int i = 0;
-    while (input[i] != '\0')
-    {
-        if (input[i] == '.')
-            return true;
-        i++;
-    }
-    return false;
-}
 
 void add()
 {
     int num;
     int i;
     float fsum;
-    float arr[40];
+    float arr[30];
+    bool validInput = false;
 
-    printf("How many numbers do you want to add: ");
-    scanf("%d", &num);
+    do
+    {
+        printf("How many numbers do you want to add?: ");
+        if (scanf("%d", &num) != 1)   //to check if there are more input numbers
+        {
+            printf("Please enter a valid number\n");
+            fflush(stdin);
+            continue;
+        }
+        validInput = true;
 
-    for (i = 0; i < num; i++)
-        scanf("%f", &arr[i]);
+        for (i = 0; i < num; i++)
+        {
+            printf("Enter number %d: ", i + 1);
+            if (scanf("%f", &arr[i]) != 1)
+            {
+                printf("Please enter a valid number\n");
+                fflush(stdin);
+                i--;
+                continue;
+            }            
+        }
 
-    for (i = 0; i < num; i++)
-        fsum += arr[i];
+        for (i = 0; i < num; i++)
+            fsum += arr[i];
 
-    printf("%.2f", fsum);
+        printf("%.2f", fsum);
+    
+    } while (!validInput);
+    
 }

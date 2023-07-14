@@ -2,26 +2,60 @@
 #include <stdio.h>
 #include <stdbool.h>
 
-
 void subtract()
 {
     int num;
     int i;
     float fdiff;
-    float arr[40];
+    float arr[30];
     int count;
+    bool validInput = false;
 
-    printf("How many numbers do you want to subtract: ");
-    scanf("%d", &num);
+    // printf("How many numbers do you want to subtract: ");
+    // scanf("%d", &num);
 
-    for (i = 0; i < num; i++)
+    // for (i = 0; i < num; i++)
+    // {
+    //     printf("Enter the number: %d", i + 1);
+    //     scanf("%f", &arr[i]);
+    //     count++;
+    // }
+    // fdiff = arr[0];
+    // for (; count >= 1; count--)
+    //     fdiff -= arr[count];
+
+    // printf("%.2f\n", fdiff);
+
+    do
     {
-        scanf("%f", &arr[i]);
-        count++;
-    }
-    fdiff = arr[0];
-    for (i = count; i >= 1; i--)
-        fdiff -= arr[i];
+        printf("How many numbers do you want to subtract: ");
+        if (scanf("%d", &num) != 1)
+        {
+            printf("Please enter a valid number:\n");
+            fflush(stdin);
+            continue;
+        }
 
-    printf("%.2f\n", fdiff);
+        for (i = 0; i < num; i++)
+        {
+            printf("Enter the number %d: ", i + 1);
+            if (scanf("%f", &arr[i]) != 1)
+            {
+                printf("Please enter a valid number: \n");
+                validInput = false;
+                fflush(stdin);
+                i--;
+            }
+            count += i;
+        }
+
+        validInput = true;
+
+        fdiff = arr[0];
+        for (; count >= 1; count--)
+            fdiff -= arr[count];
+
+        printf("%.2f\n", fdiff);
+
+    } while (!validInput);
 }

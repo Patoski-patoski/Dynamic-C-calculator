@@ -5,13 +5,38 @@ void modulo()
     int i;
     int fmod = 0;
     int arr[2];
+    int number;
+    int modulo;
 
-    printf("To find the module, Enter number: ");
+    bool validInput = false;
+    printf("To find the module, ");
 
-    for (i = 0; i < 2; i++)
-        scanf("%d", &arr[i]);
+    do
+    {
+        printf("Enter number: ");
 
-    fmod = arr[0] % arr[1];
+        if (scanf("%d", &arr[0]) != 1)
+        {
+            fflush(stdin);
+            printf("error: Enter valid numbers\n");
+            continue;
+        }
+        printf("module ? ");
 
-    printf("Modulo of %d and %d = %d\n",arr[0], arr[1], fmod);
+        if (scanf("%d", &arr[1]) != 1)
+        {
+            fflush(stdin);
+            printf("error: Enter valid numbers\n");
+            continue;
+        }
+
+        number = arr[0];
+        modulo = arr[1];
+
+        fmod = number % modulo;
+
+        printf("Modulo of %d and %d = %d\n", number, modulo, fmod);
+        validInput = true;
+        
+    } while (!validInput);
 }
