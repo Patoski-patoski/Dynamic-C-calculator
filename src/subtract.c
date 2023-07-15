@@ -11,21 +11,6 @@ void subtract()
     int count;
     bool validInput = false;
 
-    // printf("How many numbers do you want to subtract: ");
-    // scanf("%d", &num);
-
-    // for (i = 0; i < num; i++)
-    // {
-    //     printf("Enter the number: %d", i + 1);
-    //     scanf("%f", &arr[i]);
-    //     count++;
-    // }
-    // fdiff = arr[0];
-    // for (; count >= 1; count--)
-    //     fdiff -= arr[count];
-
-    // printf("%.2f\n", fdiff);
-
     do
     {
         printf("How many numbers do you want to subtract: ");
